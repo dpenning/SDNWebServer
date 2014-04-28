@@ -1,0 +1,16 @@
+# This is a comment
+
+__NODES_LIST__
+	1 __=__ davi
+	2 __=__ vinni
+	3 __=__ jimmi
+	4 __=__ josi
+__OFF_NODES_LIST__
+
+__CONNECTIONS_LIST__
+	1 __=__ 2
+	1 __=__ 4
+	2 __=__ 3
+	2 __=__ 4
+	3 __=__ 4 
+__OFF_CONNECTIONS_LIST__
