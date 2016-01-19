@@ -79,12 +79,15 @@ def build_slice_command(name,node,ingress,priority,ethertype,vlanid,nwsrc,action
 	daylight_id = ''
 	daylight_port = ''
 
+	u = ""#username for the daylight controller
+	p = ""#pass for the daylight controller
+
 	url = 'http://' + str(daylight_ip) + ":" + str(daylight_port) + \
 	'/controller/nb/v2/flowprogrammer/default/node/OF/' + \
 	str(input_flow["node"]["id"]) + "/staticFlow/" + str(input_flow["name"]) 
 
 	h = httplib2.Http(".cache")
-	h.add_credentials('admin', 'admin')
+	h.add_credentials(u, p)
 	resp, content = h.request(url,"PUT", body=str(json.dumps(input_flow)), headers={'content-type':'application/json'} )
 
 def build_base_rules(daylight_ip,
@@ -96,7 +99,7 @@ def build_base_rules(daylight_ip,
 	hosts):
 
 	h = httplib2.Http(".cache")
-	h.add_credentials('admin', 'admin')
+	h.add_credentials(u, p)
 
 
 	for a in nodes:
